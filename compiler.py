@@ -126,6 +126,12 @@ for line in lines:
            section_text.append("add byte [" + parse[1] + "]," + parse[2])
          elif variables[parse[1]] == "u16":
            section_text.append("add word [" + parse[1] + "]," + parse[2])
+   elif parse[0] == "sub":
+     if parse[1] in variables:
+         if variables[parse[1]] == "u8":
+           section_text.append("sub byte [" + parse[1] + "]," + parse[2])
+         elif variables[parse[1]] == "u16":
+           section_text.append("sub word [" + parse[1] + "]," + parse[2])
    else:
      errors.append("Undefined function '" + parse[0] + "' on line " + str(line_num))
    line_num += 1
